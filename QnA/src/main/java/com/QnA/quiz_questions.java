@@ -20,6 +20,9 @@ public class quiz_questions {
 	private String option3;
 	private String option4;
 	private String right_answer;
+	
+	
+	
 	public Integer getId() {
 		return id;
 	}
