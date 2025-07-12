@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.QnA.quiz_questions;
+import com.QnA.model.Response;
 import com.QnA.model.questionWrapper;
 import com.QnA.model.quiz;
 import com.QnA.questiondao.Dao;
@@ -56,6 +57,21 @@ public class quizService {
 		}
 		
 		
+	}
+
+	public ResponseEntity<Integer> calculateResult(Integer id, List<Response> responses) {
+		quiz quiz= quizDao.findById(id).get();
+		List<quiz_questions> questions = quiz.getQuestion();
+		int right=0;
+		int i=0;
+		for(Response response : responses) {
+			if(response.getResponse().equals(questions.get(i).getRight_answer()));
+			
+			right++;
+			
+			i++;
+		}
+		return new ResponseEntity<>(right,HttpStatus.OK);
 	}
 	
 }

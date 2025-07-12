@@ -46,6 +46,8 @@ public class QnAController {
 	public ResponseEntity<String> updateQuestion(@PathVariable Integer id, @RequestBody quiz_questions updatedQuestion) {
 	    return questionService.updateQuestion(id, updatedQuestion);
 	}
-
+	
+	
+	
 }
 
